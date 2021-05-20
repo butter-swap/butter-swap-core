@@ -1,0 +1,52 @@
+{
+  "name": "@butterswap-libs/butter-swap-core",
+  "description": "🎛 Core contracts for the Butter protocol",
+  "version": "1.0.0",
+  "homepage": "https://butterswap.finance",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/butterswap/butter-swap-core.git"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
+  "files": [
+    "contracts",
+    "build"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "@truffle/contract": "4.3.14",
+    "@types/chai": "^4.2.6",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "ethereum-waffle": "^2.4.1",
+    "ethereumjs-util": "^6.2.0",
+    "mocha": "^6.2.2",
+    "prettier": "2.2.1",
+    "rimraf": "3.0.2",
+    "solc": "0.5.16",
+    "truffle-plugin-verify": "^0.4.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3"
+  },
+  "scripts": {
+    "lint": "yarn prettier ./test/*.ts --check",
+    "lint:fix": "yarn prettier ./test/*.ts --write",
+    "clean": "rimraf ./build/",
+    "precompile": "yarn clean",
+    "compile": "waffle .waffle.json",
+    "pretest": "yarn compile",
+    "test": "mocha",
+    "prepublishOnly": "yarn test"
+  },
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "@ethersproject/solidity": "^5.1.0",
+    "@truffle/hdwallet-provider": "1.2.3",
+    "truffle": "^5.3.1",
+    "truffle-flattener": "1.5.0"
+  }
+}
